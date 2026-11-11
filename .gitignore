@@ -1,0 +1,28 @@
+# Python environment and cache
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Database and generated reports
+results/*.db
+results/*.pdf
+
+# Backup files
+app.py.backup*
+app.py.before-*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup

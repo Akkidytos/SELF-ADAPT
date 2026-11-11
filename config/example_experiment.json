@@ -1,0 +1,10 @@
+{
+  "drift_type": "Abrupt",
+  "dataset_size": 2400,
+  "batch_size": 80,
+  "drift_start": 0.55,
+  "transition_duration": 0.12,
+  "seed": 42,
+  "label_availability": 1.0,
+  "label_delay": 0
+}

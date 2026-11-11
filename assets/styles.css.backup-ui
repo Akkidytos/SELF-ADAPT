@@ -1,0 +1,176 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+:root{--navy:#172B46;--saffron:#D98232;--green:#27845B}
+html,body,[class*="css"]{font-family:'DM Sans',sans-serif}
+.stApp{background:linear-gradient(180deg,#FBFAF7 0%,#F3F5F7 100%)}
+h1,h2,h3{font-family:'Manrope',sans-serif!important;color:var(--navy)}
+[data-testid="stSidebar"]{background:linear-gradient(180deg,#172B46,#203C5C)}
+[data-testid="stSidebar"] *{color:#F7F5F0!important}
+[data-testid="stSidebar"] [data-testid="stRadio"] label{padding:7px 10px;border-radius:9px}
+[data-testid="stSidebar"] [data-testid="stRadio"] label:hover{background:rgba(255,255,255,.1)}
+div[data-testid="stMetric"]{background:white;border:1px solid #E8E6E0;padding:15px 17px;border-radius:15px;box-shadow:0 5px 18px rgba(23,43,70,.045);transition:transform .18s,box-shadow .18s}
+div[data-testid="stMetric"]:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(23,43,70,.1)}
+.stButton>button,.stDownloadButton>button{border-radius:10px;font-weight:700;transition:all .18s}
+.stButton>button[kind="primary"]{background:var(--saffron);color:white}
+.stButton>button:hover,.stDownloadButton>button:hover{transform:translateY(-2px);box-shadow:0 7px 18px rgba(23,43,70,.13)}
+.sa-hero{background:radial-gradient(circle at 90% 10%,rgba(217,130,50,.22),transparent 32%),linear-gradient(120deg,#172B46,#244A6B);color:#F7F5F0;padding:30px 32px;border-radius:20px;margin-bottom:18px;border-bottom:4px solid #D98232}
+.sa-hero h1{color:white!important;font-size:2.25rem;margin:0 0 7px}
+.sa-hero p{color:#E2EAF2;margin:0;max-width:760px}
+.sa-chip{display:inline-block;padding:5px 10px;border-radius:99px;background:rgba(255,255,255,.12);color:#F7F5F0;font-size:.75rem;letter-spacing:.06em}
+.sa-card{background:white;border:1px solid #E7E8EA;border-radius:15px;padding:18px;box-shadow:0 5px 18px rgba(23,43,70,.04)}
+.sa-note{background:#F1F4F7;border-left:4px solid #D98232;padding:12px 15px;border-radius:8px;color:#35475A}
+.sa-tricolor{height:5px;border-radius:99px;background:linear-gradient(90deg,#E88B36 0 33.33%,#F7F5F0 33.33% 66.66%,#27845B 66.66%)}
+
+/* ===== SELF-ADAPT ANIMATED RESEARCH BACKGROUND ===== */
+
+.stApp {
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(0, 145, 255, 0.16), transparent 38%),
+        radial-gradient(ellipse at 85% 75%, rgba(255, 130, 20, 0.13), transparent 38%),
+        linear-gradient(135deg, #061326 0%, #0a1d35 52%, #071426 100%);
+    background-size: 180% 180%;
+    animation: sa-background-flow 18s ease-in-out infinite alternate;
+    position: relative;
+    isolation: isolate;
+}
+
+/* Moving luminous background layer */
+.stApp::before {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 20% 35%, rgba(0, 180, 255, .20), transparent 18%),
+        radial-gradient(circle at 75% 55%, rgba(255, 145, 30, .17), transparent 20%),
+        radial-gradient(circle at 50% 90%, rgba(0, 100, 220, .14), transparent 25%);
+    filter: blur(35px);
+    animation: sa-glow-drift 16s ease-in-out infinite alternate;
+}
+
+/* Animated technical grid */
+.stApp::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .22;
+    background-image:
+        linear-gradient(rgba(70, 170, 255, .12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(70, 170, 255, .12) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, transparent, black 25%, black 80%, transparent);
+    animation: sa-grid-move 30s linear infinite;
+}
+
+/* Keep Streamlit content above background */
+.stApp > div {
+    position: relative;
+    z-index: 1;
+}
+
+/* Main page transparency */
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"] {
+    background: transparent !important;
+}
+
+/* Animated blue-orange data wave effect */
+.main .block-container {
+    position: relative;
+    background: transparent;
+}
+
+.main .block-container::before {
+    content: "";
+    position: absolute;
+    left: -10%;
+    right: -10%;
+    bottom: 2%;
+    height: 220px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: .45;
+    background:
+        repeating-radial-gradient(
+            ellipse at 50% 100%,
+            transparent 0px,
+            transparent 27px,
+            rgba(0, 180, 255, .25) 29px,
+            transparent 31px,
+            transparent 55px
+        );
+    filter: blur(1px);
+    animation: sa-wave-motion 12s ease-in-out infinite alternate;
+}
+
+.main .block-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Professional card hover */
+[data-testid="stMetric"],
+[data-testid="stVerticalBlockBorderWrapper"] {
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+[data-testid="stMetric"]:hover,
+[data-testid="stVerticalBlockBorderWrapper"]:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 150, 255, .16);
+}
+
+/* Buttons */
+.stButton button {
+    transition: all .25s ease;
+    border-radius: 10px;
+}
+
+.stButton button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 22px rgba(0, 150, 255, .25);
+}
+
+/* Smooth tab transitions */
+button[data-baseweb="tab"] {
+    transition: all .25s ease;
+}
+
+/* Animations */
+@keyframes sa-background-flow {
+    0%   { background-position: 0% 20%; }
+    100% { background-position: 100% 80%; }
+}
+
+@keyframes sa-glow-drift {
+    0%   { transform: translate(-3%, -2%) scale(1); }
+    50%  { transform: translate(3%, 2%) scale(1.08); }
+    100% { transform: translate(-1%, 4%) scale(1.02); }
+}
+
+@keyframes sa-grid-move {
+    from { background-position: 0 0; }
+    to   { background-position: 48px 48px; }
+}
+
+@keyframes sa-wave-motion {
+    from { transform: translateX(-3%) translateY(5px); }
+    to   { transform: translateX(3%) translateY(-12px); }
+}
+
+/* Accessibility: respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .stApp,
+    .stApp::before,
+    .stApp::after,
+    .main .block-container::before {
+        animation: none !important;
+    }
+}
+
+/* ===== END SELF-ADAPT ANIMATED BACKGROUND ===== */
+
+
+
